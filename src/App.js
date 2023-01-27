@@ -1,15 +1,23 @@
-import { usePopularGamesQuery } from "./features/games/gamesSlice";
+// npm
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+
+// files
+import Home from "./pages/Home";
+import Popular from "./pages/Popular";
+import Releases from "./pages/Releases";
 
 function App() {
-  const { data, isLoading, isFetching, isError, error } =
-    usePopularGamesQuery();
-
-  console.log(data);
   return (
-    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <p className="text-3xl text-gray-700 font-bold mb-5">Welcome!</p>
-      <p className="text-gray-500 text-lg">React and Tailwind CSS in action</p>
-    </div>
+    <>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/popular" element={<Popular />} />
+          <Route path="/releases" element={<Releases />} />
+        </Routes>
+      </Layout>
+    </>
   );
 }
 export default App;
