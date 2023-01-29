@@ -2,17 +2,19 @@ import { Oval } from "react-loader-spinner";
 
 export default function LoadingSpinner() {
   return (
-    <Oval
-      height={80}
-      width={80}
-      color="#4fa94d"
-      wrapperStyle={{}}
-      wrapperClass=""
-      visible={true}
-      ariaLabel="oval-loading"
-      secondaryColor="#4fa94d"
-      strokeWidth={2}
-      strokeWidthSecondary={2}
-    />
+    <div className="absolute left-2/4 mt-20">
+      <Oval
+        height={80}
+        width={80}
+        color="#4fa94d"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        ariaLabel="oval-loading"
+        secondaryColor="#4fa94d"
+        strokeWidth={2}
+        strokeWidthSecondary={2}
+      />
+    </div>
   );
 }

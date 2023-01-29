@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 
 export default function Layout({ children }) {
   return (
-    <div className="relative">
+    <div className="relative background text">
       <Navbar />
       <div className="flex flex-row">
         <Sidebar />

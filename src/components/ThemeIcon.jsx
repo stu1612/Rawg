@@ -1,11 +1,27 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { asyncToggleTheme } from "../features/themes/themesSlice";
+
 export default function ThemeIcon() {
-  const dark = null;
+  const [dark, setDark] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(asyncToggleTheme());
+    setDark(!dark);
+  };
+
   return (
-    <button id="theme-toggle" type="button" className="" onClick={null}>
+    <button
+      id="theme-toggle"
+      type="button"
+      className="dark:text-yellow-300"
+      onClick={handleClick}
+    >
       {!dark ? (
         <svg
           id="theme-toggle-dark-icon"
-          className="w-5 h-5"
+          className="w-5 h-5 "
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"

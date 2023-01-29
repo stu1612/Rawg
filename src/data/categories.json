@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "title": "Last 30 days",
+    "name": "lastMonth",
+    "slug": "last-30-days"
+  },
+  {
+    "id": 1,
+    "title": "This week",
+    "name": "thisWeek",
+    "slug": "this-week"
+  },
+  {
+    "id": 2,
+    "title": "Next week",
+    "name": "lastWeek",
+    "slug": "next-week"
+  }
+]

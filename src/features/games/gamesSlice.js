@@ -11,7 +11,10 @@ export const gamesSlice = createApi({
     popularGames: builder.query({
       query: (popular) => `/games?${popular}&key=${apiKey}`,
     }),
+    upComingGames: builder.query({
+      query: (release) => `/games?${release}&key=${apiKey}`,
+    }),
   }),
 });
 
-export const { usePopularGamesQuery } = gamesSlice;
+export const { usePopularGamesQuery, useUpComingGamesQuery } = gamesSlice;

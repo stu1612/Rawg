@@ -28,13 +28,14 @@ export default function Home() {
   if (isError || error) return "Woops.. soemthing went wrong";
 
   return (
-    <div className="h-screen">
+    <div className="h-screen ">
       <div>
         <Heading title="Top 5 Games since 2019" />
         <div>
           {game?.[index] && (
             <div className="relative">
-              <div className="relative mix-blend-overlay">
+              {/* <div className="relative mix-blend-overlay"> */}
+              <div className="relative ">
                 <img
                   src={game[index].background_image}
                   alt="Carousel"
