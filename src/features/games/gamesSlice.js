@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { baseURL, apiKey } from "../../lib/api";
 
 export const gamesSlice = createApi({
   reducerPath: "gamesSlice",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.rawg.io/api",
+    baseUrl: baseURL,
     mode: "cors",
   }),
   endpoints: (builder) => ({
     popularGames: builder.query({
-      query: (popular) =>
-        `/games?${popular}&key=${process.env.REACT_APP_API_KEY}`,
+      query: (popular) => `/games?${popular}&key=${apiKey}`,
     }),
   }),
 });

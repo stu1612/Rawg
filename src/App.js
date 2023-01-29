@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Popular from "./pages/Popular";
 import Releases from "./pages/Releases";
+import Trending from "./pages/Trending";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/releases" element={<Releases />} />
+          <Route path="/trending" element={<Trending />} />
         </Routes>
       </Layout>
     </>
