@@ -27,7 +27,7 @@ export default function GameCard({ game }) {
 
   return (
     <div
-      className="rounded-2xl h-fit item overflow-hidden flex flex-col cards cursor-pointer"
+      className="rounded-2xl h-fit overflow-hidden flex flex-col cards cursor-pointer mb-8"
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
     >
@@ -46,7 +46,7 @@ export default function GameCard({ game }) {
             </div>
           ))}
         </div>
-        <h1 className="relative w-auto font-bold text-2xl mt-2 ">
+        <h1 className="relative w-auto font-bold text-2xl mt-2 pr-4 ">
           {game.name}
           <span
             className="absolute bottom-0 ml-2 "

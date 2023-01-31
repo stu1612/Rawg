@@ -1,6 +1,5 @@
 // npm
 import { useParams, useLocation } from "react-router-dom";
-import { useRef } from "react";
 
 // files
 import { lastMonth, thisWeek, nextWeek } from "../lib/api";
@@ -45,34 +44,14 @@ export default function Releases() {
   if (isLoading || isFetching) return <LoadingSpinner />;
   if (isError || error) return <ErrorMessage />;
 
-  const gridRef = useRef(null);
-  const allItemsRef = useRef([]);
-
-  useEffect(() => {
-    ResizeAllGridItems();
-    window.addEventListener("resize", ResizeAllGridItems);
-  }, []);
-
-  const imagesLoaded = (instance) => {
-    const item = instance.elements[0];
-    ResizeGridItem(item);
-  };
-
   return (
     <div>
       <Heading title={pageTitle} />
-      {/* <CardsLayout> */}
-      <div className="grid">
-        {/* {games?.results.map((game) => (
+      <CardsLayout>
+        {games?.results.map((game) => (
           <GameCard key={game.id} game={game} />
-        ))} */}
-        {games?.results.map((item, idx) => (
-          <div className="item" key={idx} ref={allItemsRef[index]}>
-            {item}
-          </div>
         ))}
-      </div>
-      {/* </CardsLayout> */}
+      </CardsLayout>
     </div>
   );
 }

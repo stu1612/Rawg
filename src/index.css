@@ -21,11 +21,24 @@ html {
   -moz-osx-font-smoothing: auto;
 }
 
-.grid {
+.my-masonry-grid {
+  display: flex;
+  justify-content: center;
+  margin-left: 0px; /* gutter size offset */
+  width: auto;
+  /* background-color: yellow; */
+}
+.my-masonry-grid_column {
+  padding: 0px 15px 15px 15px; /* gutter size */
+  background-clip: padding-box;
+  /* background-color: pink; */
+}
+
+/* .grid {
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 20px;
 }
 
 .sum {
@@ -33,7 +46,7 @@ html {
   grid-template-columns: repeat(3, 321px);
   grid-gap: 24px;
   width: 100%;
-}
+} */
 
 @layer base {
   .background {
