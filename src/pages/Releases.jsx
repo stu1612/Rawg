@@ -40,6 +40,8 @@ export default function Releases() {
     error,
   } = useUpComingGamesQuery(selection());
 
+  console.log(games);
+
   // safety
   if (isLoading || isFetching) return <LoadingSpinner />;
   if (isError || error) return <ErrorMessage />;

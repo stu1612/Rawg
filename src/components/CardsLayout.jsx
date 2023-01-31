@@ -3,9 +3,9 @@ import Masonry from "react-masonry-css";
 
 const breakpoints = {
   default: 4,
-  1400: 3,
-  1100: 2,
-  800: 1,
+  1500: 3,
+  1200: 2,
+  980: 1,
 };
 
 export default function CardsLayout({ children }) {
