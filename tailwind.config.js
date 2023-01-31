@@ -19,6 +19,16 @@ module.exports = {
           dark: "#151515",
           light: "#ff6961",
         },
+        cards: {
+          dark: "#202020",
+          light: "#e8e8e8",
+        },
+      },
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(15rem, 1fr))",
+      },
+      bg: {
+        show: "background-color:red",
       },
     },
   },

@@ -42,8 +42,6 @@ const formattedNext30Days = next30Days.toISOString().slice(0, 10);
 const formattedLast7Days = last7Days.toISOString().slice(0, 10);
 const formattedNext7Days = next7Days.toISOString().slice(0, 10);
 
-console.log(formattedNext30Days);
-
 // fixed dates
 export const topFive = `dates=2019-01-01,${currentDate}&ordering=-added&page_size=5`;
 export const lastMonth = `dates=${formattedLast30Days},${currentDate}&ordering=-added&page_size=20`;
