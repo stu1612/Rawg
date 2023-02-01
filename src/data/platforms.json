@@ -1,0 +1,58 @@
+[
+  {
+    "id": 4,
+    "title": "PC",
+    "name": "pc",
+    "route": "platforms",
+    "slug": "pc"
+  },
+  {
+    "id": 187,
+    "title": "PlayStation 5",
+    "name": "playstation5",
+    "route": "platforms",
+    "slug": "playstation5"
+  },
+  {
+    "id": 1,
+    "title": "Xbox One",
+    "name": "xboxOne",
+    "route": "platforms",
+    "slug": "xbox-one"
+  },
+  {
+    "id": 3,
+    "title": "iOS",
+    "name": "ios",
+    "route": "platforms",
+    "slug": "ios"
+  },
+  {
+    "id": 21,
+    "title": "Android",
+    "name": "android",
+    "route": "platforms",
+    "slug": "android"
+  },
+  {
+    "id": 5,
+    "title": "macOS",
+    "name": "macos",
+    "route": "platforms",
+    "slug": "macos"
+  },
+  {
+    "id": 6,
+    "title": "Linux",
+    "name": "linux",
+    "route": "platforms",
+    "slug": "linux"
+  },
+  {
+    "id": 7,
+    "title": "Nintendo Switch",
+    "name": "nintendoSwitch",
+    "route": "platforms",
+    "slug": "nintendo-switch"
+  }
+]

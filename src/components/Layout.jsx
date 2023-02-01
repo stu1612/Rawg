@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <Navbar />
       <div className="flex flex-row">
         <Sidebar />
-        <main className="px-8 w-full  ">{children}</main>
+        <main className="px-8 w-full">{children}</main>
       </div>
     </div>
   );

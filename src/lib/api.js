@@ -43,10 +43,14 @@ const formattedLast7Days = last7Days.toISOString().slice(0, 10);
 const formattedNext7Days = next7Days.toISOString().slice(0, 10);
 
 // fixed dates
-export const topFive = `dates=2019-01-01,${currentDate}&ordering=-added&page_size=5`;
+export const topFive = `dates=2000-01-01,${currentDate}&ordering=-added&page_size=5`;
+export const bestOfTheYear = `dates=2023-01-01,${currentDate}&ordering=-rating&page_size=20`;
+export const popularIn2022 = `dates=2022-01-01,2022-12-31&ordering=-rating&page_size=20`;
+export const allStars = `dates=2000-01-01,${currentDate}&ordering=-rating&page_size=20`;
 export const lastMonth = `dates=${formattedLast30Days},${currentDate}&ordering=-added&page_size=20`;
 export const thisWeek = `dates=${formattedLast7Days},${currentDate}&ordering=-added`;
-export const nextWeek = `dates=${currentDate},${formattedNext7Days}&ordering=-added`;
+export const nextWeek = `dates=${currentDate},${formattedNext7Days}&ordering=-released`;
+
 // export const nextMonth = `dates=${currentDate}, ${formattedNext30Days}&ordering=-added&page_size=20`;
 // export const nextYear = `dates=2023-01-29,2024-01-29&ordering=-added`;
 

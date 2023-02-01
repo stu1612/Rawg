@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Popular from "./pages/Popular";
 import Releases from "./pages/Releases";
 import Trending from "./pages/Trending";
+import Platform from "./pages/Platform";
 
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -17,8 +18,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/popular" element={<Popular />} />
+          <Route path="/popular/:slug" element={<Popular />} />
           <Route path="/releases/:slug" element={<Releases />} />
+          <Route path="/platforms/:slug" element={<Platform />} />
           <Route path="/trending" element={<Trending />} />
         </Routes>
       </Layout>

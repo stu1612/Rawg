@@ -7,7 +7,7 @@ export default function getRatings(rating) {
   switch (rating) {
     case "skip":
       return (
-        <div>
+        <div className="pl-2">
           <img
             src={skip}
             alt="rating icon of skip"
@@ -17,7 +17,7 @@ export default function getRatings(rating) {
       );
     case "exceptional":
       return (
-        <div className="relative bottom-[-5px]">
+        <div className="relative bottom-[-5px] pl-2">
           <img
             src={exceptional}
             alt="rating icon of exceptional"
@@ -27,7 +27,7 @@ export default function getRatings(rating) {
       );
     case "recommended":
       return (
-        <div className="relative bottom-[2px]">
+        <div className="relative bottom-[2px] pl-2">
           <img
             src={recommended}
             alt="rating icon of recommended"
@@ -37,7 +37,7 @@ export default function getRatings(rating) {
       );
     case "meh":
       return (
-        <div>
+        <div className="pl-2">
           <img
             src={meh}
             alt="rating icon of meh"
@@ -49,23 +49,3 @@ export default function getRatings(rating) {
       return null;
   }
 }
-
-// import { BiNoEntry } from "react-icons/bi";
-// import { HiThumbUp } from "react-icons/hi";
-// import { BsTrophyFill } from "react-icons/bs";
-// import { BsFillEmojiExpressionlessFill } from "react-icons/bs";
-
-// export default function getRatings(rating) {
-//   switch (rating) {
-//     case "skip":
-//       return <BiNoEntry color="#DC143C" size={28} />;
-//     case "exceptional":
-//       return <BsTrophyFill color="#FFA500" size={28} />;
-//     case "recommended":
-//       return <HiThumbUp color="#FFD700" size={28} />;
-//     case "meh":
-//       return <BsFillEmojiExpressionlessFill color="#FFD700" size={28} />;
-//     default:
-//       return null;
-//   }
-// }

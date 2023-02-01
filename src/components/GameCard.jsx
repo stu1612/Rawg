@@ -1,23 +1,21 @@
+// npm
 import { useState } from "react";
-import getPlatform from "../utils/getPlatform";
-import getRatings from "../utils/getRatings";
 import { HiOutlineChevronRight } from "react-icons/hi";
+
+// files
+import getPlatform from "../lib/getPlatform";
+import getRatings from "../lib/getRatings";
+import Tooltip from "./Tooltip";
+import formatDate from "../utils/formatDate";
 
 export default function GameCard({ game }) {
   // local state
   const [showTooltip, setShowTooltip] = useState(false);
   const [onHover, setOnHover] = useState(false);
 
+  // components
   const returnFirstIndexRating =
     game.ratings.length !== 0 && game.ratings[0].title;
-
-  const openTooltip = () => {
-    setShowTooltip(!showTooltip);
-  };
-
-  const handleHover = () => {
-    setOnHover(!onHover);
-  };
 
   const genres = game.genres.map((genre) => (
     <small
@@ -27,6 +25,15 @@ export default function GameCard({ game }) {
       {genre.name}
     </small>
   ));
+
+  // methods
+  const openTooltip = () => {
+    setShowTooltip(!showTooltip);
+  };
+
+  const handleHover = () => {
+    setOnHover(!onHover);
+  };
 
   return (
     <div
@@ -50,10 +57,10 @@ export default function GameCard({ game }) {
           ))}
         </div>
 
-        <h1 className="relative w-auto font-bold text-2xl mt-2 pr-8">
+        <h1 className="relative w-auto font-bold text-2xl mt-2 pr-12">
           {game.name}
           <span
-            className="absolute bottom-0 ml-2 "
+            className="absolute bottom-0"
             onMouseEnter={openTooltip}
             onMouseLeave={openTooltip}
           >
@@ -66,7 +73,7 @@ export default function GameCard({ game }) {
           <div className="flex flex-col w-full absolute cards left-0 z-10 px-4 pt-4 py-8 rounded-b-2xl">
             <div className="decoration-1 py-4 flex flex-row justify-between border-b-[0.5px] border-text border-zinc-500 border-solid w-full">
               <small className="text-zinc-500">Released Date: </small>
-              <small>{game.released}</small>
+              <small>{formatDate(game.released)}</small>
             </div>
 
             <div className="decoration-1 py-4 flex flex-row justify-between items-center w-full">
@@ -83,11 +90,3 @@ export default function GameCard({ game }) {
     </div>
   );
 }
-
-const Tooltip = ({ message }) => {
-  return (
-    <small className="absolute top-[-30px] right-[-10px] background px-2 text-[12px] ">
-      {message}
-    </small>
-  );
-};

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "title": "Best of the year",
+    "name": "bestOfTheYear",
+    "route": "popular",
+    "slug": "best-of-the-year"
+  },
+  {
+    "id": 1,
+    "title": "Popular in 2022",
+    "name": "popularIn2022",
+    "route": "popular",
+    "slug": "popular-in-2022"
+  },
+  {
+    "id": 2,
+    "title": "All Stars",
+    "name": "allStars",
+    "route": "popular",
+    "slug": "all-stars"
+  }
+]

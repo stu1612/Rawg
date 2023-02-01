@@ -3,18 +3,21 @@
     "id": 0,
     "title": "Last 30 days",
     "name": "lastMonth",
+    "route": "releases",
     "slug": "last-30-days"
   },
   {
     "id": 1,
     "title": "This week",
     "name": "thisWeek",
+    "route": "releases",
     "slug": "this-week"
   },
   {
     "id": 2,
     "title": "Next week",
     "name": "lastWeek",
+    "route": "releases",
     "slug": "next-week"
   }
 ]
