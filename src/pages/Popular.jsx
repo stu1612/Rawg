@@ -16,16 +16,16 @@ export default function Popular() {
   const params = useParams();
   const location = useLocation();
 
-  const { state } = location;
+  const { name } = location.state;
   const { slug } = params;
 
   const pageTitle = slugToString(slug);
 
   // methods
   function selection() {
-    if (state === "bestOfTheYear") {
+    if (name === "bestOfTheYear") {
       return bestOfTheYear;
-    } else if (state === "popularIn2022") {
+    } else if (name === "popularIn2022") {
       return popularIn2022;
     } else {
       return allStars;

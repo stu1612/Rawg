@@ -6,12 +6,12 @@ export default function LoadingSpinner() {
       <Oval
         height={80}
         width={80}
-        color="#4fa94d"
+        color="#ff6961"
         wrapperStyle={{}}
         wrapperClass=""
         visible={true}
         ariaLabel="oval-loading"
-        secondaryColor="#4fa94d"
+        secondaryColor="white"
         strokeWidth={2}
         strokeWidthSecondary={2}
       />

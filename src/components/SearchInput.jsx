@@ -1,5 +1,6 @@
 // npm
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function SearchInput() {
   // local state
@@ -8,8 +9,17 @@ export default function SearchInput() {
   // method
   const submitHandler = () => {};
 
+  // properties
+  const location = useLocation();
+  const { pathname } = location;
+
+  const hidden = pathname === "/" ? true : false;
+
   return (
-    <form onSubmit={submitHandler} className="w-2/4">
+    <form
+      onSubmit={submitHandler}
+      className={`${hidden ? "hidden" : "block"} w-2/4`}
+    >
       <input
         type="search"
         name=""

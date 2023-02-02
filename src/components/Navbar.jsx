@@ -1,4 +1,5 @@
 // files
+import EnterSite from "./EnterSite";
 import SearchInput from "./SearchInput";
 import ThemeIcon from "./ThemeIcon";
 import Title from "./Title";
@@ -9,6 +10,7 @@ export default function Navbar() {
       <ul className="flex flex-row justify-between items-center py-6">
         <Title />
         <SearchInput />
+        <EnterSite />
         <ThemeIcon />
       </ul>
     </nav>

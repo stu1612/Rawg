@@ -29,12 +29,10 @@ import PlatformSidebar from "./PlatformSidebar";
 // import { usePlatformQuery } from "../features/games/gamesSlice";
 
 export default function Sidebar() {
-  const [displaySidebar, setDisplaySidebar] = useState(false);
   const location = useLocation();
   const { pathname } = location;
 
-  const setSidebar = pathname === "/" ? false : true;
-  console.log(setSidebar);
+  const hidden = pathname === "/" ? true : false;
 
   // properties
   const releaseIcons = [HiStar, DiCodeigniter, BsSkipForwardFill];
@@ -44,7 +42,7 @@ export default function Sidebar() {
   // const platformIcons = [...platformIcons_1, ...platformIcons_2];
 
   return (
-    <nav className={`${setSidebar ? "block" : "hidden"}`}>
+    <nav className={`${hidden ? "hidden" : "block"}`}>
       <div className="background text hidden md:block max-w-full w-[300px] h-min px-8">
         <ul className="flex flex-col mt-16">
           <Link to={"/"} className="text-xl font-bold py-2">
