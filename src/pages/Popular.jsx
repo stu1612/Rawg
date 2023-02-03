@@ -1,5 +1,6 @@
 // npm
 import { useParams, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // files
 import { bestOfTheYear, popularIn2022, allStars } from "../lib/api";
@@ -45,13 +46,24 @@ export default function Popular() {
   if (isError || error) return <ErrorMessage />;
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        duration: 0.2,
+        ease: "linear",
+      }}
+    >
       <Heading title={pageTitle} />
       <CardsLayout>
         {games?.results.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </CardsLayout>
-    </div>
+    </motion.div>
   );
 }

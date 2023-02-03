@@ -1,36 +1,23 @@
-// npm
 import { useParams, useLocation } from "react-router-dom";
 
-// files
-import { lastMonth, thisWeek, nextWeek } from "../lib/api";
-import { slugToString } from "../utils/slugToString";
-import { useUpComingGamesQuery } from "../features/games/gamesSlice";
-import GameCard from "../components/GameCard";
-import Heading from "../components/Heading";
+import { useGenreQuery } from "../features/games/gamesSlice";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorMessage from "../components/ErrorMessage";
+import { motion } from "framer-motion";
+import GameCard from "../components/GameCard";
 import CardsLayout from "../components/CardsLayout";
+import Heading from "../components/Heading";
+import { slugToString } from "../utils/slugToString";
 
-export default function Releases() {
+export default function Genres() {
   // properties
   const params = useParams();
   const location = useLocation();
 
-  const { name } = location.state;
+  const { id } = location.state;
   const { slug } = params;
 
   const pageTitle = slugToString(slug);
-
-  // methods
-  function selection() {
-    if (name === "lastMonth") {
-      return lastMonth;
-    } else if (name === "thisWeek") {
-      return thisWeek;
-    } else {
-      return nextWeek;
-    }
-  }
 
   const {
     data: games,
@@ -38,20 +25,31 @@ export default function Releases() {
     isFetching,
     isError,
     error,
-  } = useUpComingGamesQuery(selection());
+  } = useGenreQuery(id);
 
   // safety
   if (isLoading || isFetching) return <LoadingSpinner />;
   if (isError || error) return <ErrorMessage />;
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        duration: 0.2,
+        ease: "linear",
+      }}
+    >
       <Heading title={pageTitle} />
       <CardsLayout>
         {games?.results.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </CardsLayout>
-    </div>
+    </motion.div>
   );
 }

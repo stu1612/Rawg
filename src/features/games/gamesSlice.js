@@ -29,6 +29,12 @@ export const gamesSlice = createApi({
     platform: builder.query({
       query: () => `platforms?key=${apiKey}`,
     }),
+    genres: builder.query({
+      query: () => `genres?key=${apiKey}`,
+    }),
+    genre: builder.query({
+      query: (id) => `games?key=${apiKey}&genres=${id}`,
+    }),
   }),
 });
 
@@ -37,4 +43,6 @@ export const {
   useUpComingGamesQuery,
   usePlatformsQuery,
   usePlatformQuery,
+  useGenresQuery,
+  useGenreQuery,
 } = gamesSlice;

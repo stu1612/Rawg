@@ -1,45 +1,31 @@
 // npm
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { HiStar } from "react-icons/hi";
-import { DiCodeigniter } from "react-icons/di";
-import { BsSkipForwardFill } from "react-icons/bs";
 import { BsFillTrophyFill } from "react-icons/bs";
+import { BsSkipForwardFill } from "react-icons/bs";
+import { DiCodeigniter } from "react-icons/di";
+import { HiStar } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import { RiBarChartFill } from "react-icons/ri";
 import { SiStarship } from "react-icons/si";
-
-// import { FaPlaystation } from "react-icons/fa";
-// import { SiNintendoswitch } from "react-icons/si";
-// import { FaXbox } from "react-icons/fa";
-// import { FaApple } from "react-icons/fa";
-// import { DiAndroid } from "react-icons/di";
-// import { FaWindows } from "react-icons/fa";
-// import { FaLinux } from "react-icons/fa";
-// import { FaAppStoreIos } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 // files
 import SidebarLinks from "./SidebarLinks";
+import GenreSidebar from "./GenreSidebar";
+import PlatformSidebar from "./PlatformSidebar";
 
 // data
 import releaseData from "../data/gameReleases.json";
 import topData from "../data/topGames.json";
-// import platformsData from "../data/platforms.json";
-import PlatformSidebar from "./PlatformSidebar";
-// import { usePlatformQuery } from "../features/games/gamesSlice";
 
 export default function Sidebar() {
+  // properties
   const location = useLocation();
   const { pathname } = location;
-
   const hidden = pathname === "/" ? true : false;
 
-  // properties
+  // components
   const releaseIcons = [HiStar, DiCodeigniter, BsSkipForwardFill];
   const topIcons = [BsFillTrophyFill, RiBarChartFill, SiStarship];
-  // const platformIcons_1 = [FaWindows, FaPlaystation, FaXbox, FaApple];
-  // const platformIcons_2 = [DiAndroid, FaAppStoreIos, FaLinux, SiNintendoswitch];
-  // const platformIcons = [...platformIcons_1, ...platformIcons_2];
 
   return (
     <nav className={`${hidden ? "hidden" : "block"}`}>
@@ -54,10 +40,9 @@ export default function Sidebar() {
           <SidebarLinks data={topData} icons={topIcons} />
 
           <h2 className="text-xl font-bold py-2">Platforms</h2>
-          {/* <SidebarLinks data={platformsData} icons={platformIcons} /> */}
           <PlatformSidebar />
-
           <h2 className="text-xl font-bold py-2">Genres</h2>
+          <GenreSidebar />
         </ul>
       </div>
     </nav>

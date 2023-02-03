@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { usePlatformQuery } from "../features/games/gamesSlice";
+import { useGenresQuery } from "../features/games/gamesSlice";
 import { Link } from "react-router-dom";
 import ImageSidebarLink from "./ImageSidebarLink";
 
-export default function PlatformSidebar() {
+export default function GenreSidebar() {
   const [updatedArr, setUpdatedArr] = useState([]);
 
   const {
@@ -12,17 +12,17 @@ export default function PlatformSidebar() {
     isFetching,
     isError,
     error,
-  } = usePlatformQuery();
+  } = useGenresQuery();
 
   useEffect(() => {
-    const desiredIds = [4, 187, 1, 3, 21, 5, 6, 7];
+    const desiredIds = [4, 3, 5, 2, 1, 15, 6];
     setUpdatedArr(
       games?.results.filter((item) => desiredIds.includes(item.id))
     );
   }, [games]);
 
   return (
-    <ImageSidebarLink updatedArr={updatedArr} route={"platforms"} />
+    <ImageSidebarLink updatedArr={updatedArr} route={"genres"} />
     // <ul>
     //   {updatedArr?.map((item) => (
     //     <Link

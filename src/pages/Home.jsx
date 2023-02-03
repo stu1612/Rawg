@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Heading from "../components/Heading";
 import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorMessage from "../components/ErrorMessage";
 import { usePopularGamesQuery } from "../features/games/gamesSlice";
 import { topFive } from "../lib/api";
 import { motion } from "framer-motion";
@@ -26,10 +27,21 @@ export default function Home() {
   }, [index]);
 
   if (isLoading || isFetching) return <LoadingSpinner />;
-  if (isError || error) return "Woops.. soemthing went wrong";
+  if (isError || error) return <ErrorMessage />;
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        duration: 0.2,
+        ease: "linear",
+      }}
+    >
       <Heading title="Top 5 Games since 2019" />
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -74,6 +86,6 @@ export default function Home() {
           </div>
         )}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
