@@ -1,6 +1,19 @@
+// npm
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function ImageSidebarLink({ updatedArr, route }) {
+export default function APILink({ query, ids, route }) {
+  const [updatedArr, setUpdatedArr] = useState([]);
+
+  const { data: games } = query;
+
+  useEffect(() => {
+    const desiredIds = ids;
+    setUpdatedArr(
+      games?.results.filter((item) => desiredIds.includes(item.id))
+    );
+  }, [games, ids]);
+
   return (
     <ul>
       {updatedArr?.map((item) => (

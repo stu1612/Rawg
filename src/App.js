@@ -9,8 +9,7 @@ import { useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Popular from "./pages/Popular";
 import Releases from "./pages/Releases";
-import Trending from "./pages/Trending";
-import Platform from "./pages/Platform";
+import Platforms from "./pages/Platforms";
 import Genres from "./pages/Genres";
 
 function App() {
@@ -30,9 +29,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/popular/:slug" element={<Popular />} />
             <Route path="/releases/:slug" element={<Releases />} />
-            <Route path="/platforms/:slug" element={<Platform />} />
+            <Route path="/platforms/:slug" element={<Platforms />} />
             <Route path="/genres/:slug" element={<Genres />} />
-            <Route path="/trending" element={<Trending />} />
           </Routes>
         </AnimatePresence>
       </Layout>

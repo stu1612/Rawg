@@ -3,10 +3,10 @@ import { useState } from "react";
 import { HiOutlineChevronRight } from "react-icons/hi";
 
 // files
+import formatDate from "../utils/formatDate";
 import getPlatform from "../lib/getPlatform";
 import getRatings from "../lib/getRatings";
 import Tooltip from "./Tooltip";
-import formatDate from "../utils/formatDate";
 
 export default function GameCard({ game }) {
   // local state

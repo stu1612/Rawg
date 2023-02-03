@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function SidebarLinks({ data, icons }) {
+export default function CustomLink({ data, icons }) {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   return (

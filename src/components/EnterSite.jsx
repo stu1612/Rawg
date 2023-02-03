@@ -1,8 +1,10 @@
+// npm
 import { IoRocketSharp } from "react-icons/io5";
-import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function EnterSite() {
+  // properites
   const location = useLocation();
   const { pathname } = location;
 
