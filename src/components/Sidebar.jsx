@@ -22,7 +22,8 @@ export default function Sidebar() {
   // properties
   const location = useLocation();
   const { pathname } = location;
-  const hidden = pathname === "/" ? true : false;
+
+  const hidden = pathname === "/" || pathname.includes("game") ? true : false;
 
   return (
     <nav className={`${hidden ? "hidden" : "block"}`}>

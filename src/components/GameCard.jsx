@@ -7,6 +7,7 @@ import formatDate from "../utils/formatDate";
 import getPlatform from "../lib/getPlatform";
 import getRatings from "../lib/getRatings";
 import Tooltip from "./Tooltip";
+import { Link } from "react-router-dom";
 
 export default function GameCard({ game }) {
   // local state
@@ -17,22 +18,17 @@ export default function GameCard({ game }) {
   const returnFirstIndexRating =
     game.ratings.length !== 0 && game.ratings[0].title;
 
-  const genres = game.genres.map((genre) => (
-    <small
-      key={genre.id}
-      className="mr-2 underline underline-offset-4 text-[10px]"
-    >
-      {genre.name}
-    </small>
-  ));
-
   // methods
   const openTooltip = () => {
     setShowTooltip(!showTooltip);
   };
 
   const handleHover = () => {
-    setOnHover(!onHover);
+    if (window.innerWidth < 760) {
+      return;
+    } else {
+      setOnHover(!onHover);
+    }
   };
 
   return (
@@ -68,25 +64,42 @@ export default function GameCard({ game }) {
             {showTooltip && <Tooltip message={returnFirstIndexRating} />}
           </span>
         </h1>
-
-        {onHover && (
-          <div className="flex flex-col w-full absolute cards left-0 z-10 px-4 pt-4 py-8 rounded-b-2xl">
-            <div className="decoration-1 py-4 flex flex-row justify-between border-b-[0.5px] border-text border-zinc-500 border-solid w-full">
-              <small className="text-zinc-500">Released Date: </small>
-              <small>{formatDate(game.released)}</small>
-            </div>
-
-            <div className="decoration-1 py-4 flex flex-row justify-between items-center w-full">
-              <small className="text-zinc-500">Genres:</small>
-              <div className="flex flex-wrap justify-end">{genres}</div>
-            </div>
-            <button className="dark:bg-[#353535] bg-[#ababab] py-3 rounded-md flex flex-row items-center justify-between px-4">
-              <p className="text-sm">See Details</p>
-              <HiOutlineChevronRight />
-            </button>
-          </div>
-        )}
+        {onHover && <BottomContent game={game} />}
+        <div className="block md:hidden">
+          <BottomContent game={game} />
+        </div>
       </div>
+    </div>
+  );
+}
+
+function BottomContent({ game }) {
+  const genres = game.genres.map((genre) => (
+    <small
+      key={genre.id}
+      className="mr-2 underline underline-offset-4 text-[10px]"
+    >
+      {genre.name}
+    </small>
+  ));
+
+  return (
+    <div className="flex flex-col w-full md:absolute cards md:left-0 z-10 px-4 pt-4 py-8 rounded-b-2xl">
+      <div className="decoration-1 py-4 flex flex-row justify-between border-b-[0.5px] border-text border-zinc-500 border-solid w-full">
+        <small className="text-zinc-500">Released Date: </small>
+        <small>{formatDate(game.released)}</small>
+      </div>
+
+      <div className="decoration-1 py-4 flex flex-row justify-between items-center w-full">
+        <small className="text-zinc-500">Genres:</small>
+        <div className="flex flex-wrap justify-end">{genres}</div>
+      </div>
+      <Link to={`/game/${game.slug}`} state={game.id}>
+        <button className="dark:bg-[#353535] bg-[#ababab] py-3 rounded-md flex flex-row items-center justify-between w-full px-4">
+          <p className="text-sm">See Details</p>
+          <HiOutlineChevronRight />
+        </button>
+      </Link>
     </div>
   );
 }
